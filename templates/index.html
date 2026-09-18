@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hangman — Word Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<main class="app">
+    <section class="card">
+
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">WORD CHALLENGE</p>
+                <h1>Hangman</h1>
+                <p class="subtitle">
+                    Guess the hidden word before you run out of chances.
+                </p>
+            </div>
+
+            <button id="newGame" class="new-game" type="button">
+                ↻ New game
+            </button>
+        </header>
+
+        <section class="stats">
+            <div class="stat">
+                <span>Wrong guesses</span>
+                <strong><span id="wrong">0</span> / 6</strong>
+            </div>
+
+            <div class="stat">
+                <span>Letters tried</span>
+                <strong id="tried">0</strong>
+            </div>
+
+            <div class="stat">
+                <span>Word length</span>
+                <strong id="wordLength">0</strong>
+            </div>
+        </section>
+
+        <section class="game-panel">
+
+            <div class="drawing-panel">
+                <svg class="hangman-svg"
+                     viewBox="0 0 300 300"
+                     role="img"
+                     aria-label="Hangman drawing">
+
+                    <g class="gallows">
+                        <line x1="48" y1="260" x2="250" y2="260"/>
+                        <line x1="95" y1="260" x2="95" y2="40"/>
+                        <line x1="95" y1="40" x2="220" y2="40"/>
+                        <line x1="220" y1="40" x2="220" y2="70"/>
+                        <line x1="95" y1="72" x2="125" y2="40"/>
+                    </g>
+
+                    <g class="person">
+                        <circle class="body-part head" cx="220" cy="100" r="30"/>
+                        <line class="body-part body" x1="220" y1="130" x2="220" y2="205"/>
+                        <line class="body-part arm-left" x1="220" y1="150" x2="178" y2="185"/>
+                        <line class="body-part arm-right" x1="220" y1="150" x2="262" y2="185"/>
+                        <line class="body-part leg-left" x1="220" y1="205" x2="180" y2="250"/>
+                        <line class="body-part leg-right" x1="220" y1="205" x2="260" y2="250"/>
+
+                        <circle class="face eye-left" cx="210" cy="95" r="3"/>
+                        <circle class="face eye-right" cx="230" cy="95" r="3"/>
+                        <path class="face mouth" d="M208 112 Q220 103 232 112"/>
+                    </g>
+                </svg>
+
+                <p id="drawingLabel">You're safe for now.</p>
+            </div>
+
+            <div class="word-panel">
+                <span class="pill">GUESS THE WORD</span>
+
+                <div id="message" class="message" aria-live="polite">
+                    Pick a letter to begin.
+                </div>
+
+                <div id="word" class="word"></div>
+
+                <p class="hint">
+                    ✦ Every wrong letter brings the drawing closer.
+                </p>
+            </div>
+
+        </section>
+
+        <div id="keyboard" class="keyboard" aria-label="Letter keyboard"></div>
+
+        <footer class="footer">
+            <span>6 mistakes allowed</span>
+            <span>Good luck ✦</span>
+        </footer>
+
+    </section>
+</main>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
