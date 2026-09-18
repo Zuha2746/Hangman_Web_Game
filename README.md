@@ -1,24 +1,24 @@
 # Hangman Web Game
 
-A browser-based Hangman game built with Python and Flask.
+A simple browser-based Hangman game made using Python, Flask, HTML, CSS, and JavaScript.
 
 ## Features
 
-- Random word selection from `words.txt`
-- Easy-to-expand word list
-- Six maximum wrong guesses
-- On-screen keyboard
-- Physical keyboard support (A-Z)
-- New Game button that fully resets the keyboard
-- SVG Hangman drawing with six stages
-- Win and loss states
-- Responsive layout for desktop and mobile
-- Input validation and duplicate-guess protection
+* Random word selection from `words.txt`
+* On-screen keyboard
+* Physical keyboard support
+* 6 wrong guesses allowed
+* Hangman drawing with 6 stages
+* Win and loss states
+* New Game button
+* Duplicate guess protection
+* Input validation
+* Responsive design
 
-## Project structure
+## Project Structure
 
 ```text
-hangman_web/
+Hangman_Web_Game/
 ├── app.py
 ├── words.txt
 ├── requirements.txt
@@ -26,34 +26,65 @@ hangman_web/
 ├── templates/
 │   └── index.html
 └── static/
-    ├── style.css
-    └── app.js
+    ├── app.js
+    └── style.css
 ```
 
-## Run on macOS
+## How to Run
 
-Open Terminal:
+First, clone the repository:
 
 ```bash
-cd ~/Downloads/hangman_web
+git clone https://github.com/Zuha2746/Hangman_Web_Game.git
+cd Hangman_Web_Game
+```
+
+Install the required package:
+
+```bash
 python3 -m pip install -r requirements.txt
+```
+
+Run the application:
+
+```bash
 python3 app.py
 ```
 
 Then open:
 
+```text
 http://127.0.0.1:5003
+```
 
-Press `Ctrl+C` in Terminal to stop the server.
+Press `Ctrl + C` in the terminal to stop the server.
 
-## Adding more words
+## Adding Words
 
-Open `words.txt` and put one normal word on each line:
+To add more words, open `words.txt` and add one word per line.
+
+For example:
 
 ```text
 adventure
 mountain
 sunshine
+aircraft
+computer
 ```
 
-You can add hundreds of words without changing `app.py`.
+The words are loaded automatically when the application starts.
+
+## Controls
+
+You can guess letters using either:
+
+* The on-screen keyboard
+* Your physical keyboard
+
+Click **New Game** to start a new round.
+
+## About
+
+This was one of my projects for practicing Python and learning how a Python backend can work with a web frontend.
+
